@@ -1,13 +1,16 @@
-const express = require('express')
+const express = require('express');
+const routes = require('./routes');
+const cors = require('cors');
 const app = express();
-const routes = require('./routes')
+
 app.use(express.json());
-app.use(routes)
+app.use(cors());
+app.use(routes);
 
-app.get('/', (req, res)=>{
-    res.send('hello world')
-})
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
 
-app.listen(3000, ()=>{
-    console.log('executando na porta 3000 localhost:3000')
-})
+app.listen(3000, () => {
+    console.log('Listening on port 3000');
+});
